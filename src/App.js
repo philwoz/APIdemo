@@ -4,11 +4,13 @@ import './App.css';
 import axios from "axios";
 
 
-require("dotenv").config();
 
+const { API_KEY } = process.env;
 function App() {
   const [data, setData] = React.useState(null);
-  // const [leagues, setLeagues] = React.useState(4);
+ // const [leagues, setLeagues] = React.useState(4);
+
+ 
 
   React.useEffect(() => {
     const getFixtures = () => {
@@ -16,7 +18,7 @@ function App() {
         method: 'get',
         url: 'https://v3.football.api-sports.io/status',
         headers: {
-          'x-rapidapi-key': process.env.API_KEY,
+          'x-rapidapi-key': API_KEY,
           'x-rapidapi-host': 'v3.football.api-sports.io'
         }
       };
